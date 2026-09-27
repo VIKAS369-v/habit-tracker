@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bullet Journal Habit Tracker 📓 | Tiny Wins for Chronic Procrastinators</title>
+  
+  <!-- Hand-Drawn Google Fonts (Caveat, Patrick Hand, Kalam, Lora) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Kalam:wght@400;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Patrick+Hand&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📓</text></svg>">
+</head>
+<body>
+
+  <main class="notebook-container">
+    <!-- Washi Tape Accents -->
+    <div class="washi-tape washi-tape-top-left" aria-hidden="true"></div>
+    <div class="washi-tape washi-tape-top-right" aria-hidden="true"></div>
+
+    <!-- Notebook Header -->
+    <header class="journal-header">
+      <div class="title-group">
+        <h1>
+          <span>📓 Habit & Rhythm Journal</span>
+        </h1>
+        <p class="title-subtitle">Low-friction tracking & micro-momentum for chronic procrastinators</p>
+      </div>
+
+      <div class="journal-controls">
+        <button id="sound-toggle-btn" class="control-btn" title="Toggle gentle pencil sound effects">🔊 Sound: On</button>
+        <div class="month-nav" role="navigation" aria-label="Month Navigation">
+          <button id="prev-month-btn" title="Previous Month" aria-label="Previous Month">&lsaquo;</button>
+          <div id="current-month-label" class="current-month-display">September 2026</div>
+          <button id="next-month-btn" title="Next Month" aria-label="Next Month">&rsaquo;</button>
+          <button id="today-btn" class="today-jump-btn" title="Jump to current date">Today</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Gentle Procrastinator Motivation Banner -->
+    <section class="procrastinator-banner" aria-label="Daily Anti-Procrastination Reminder">
+      <div class="banner-quote" id="banner-quote">“Make it so small you can't talk yourself out of it. 2 minutes is enough.”</div>
+      <div class="banner-badge" id="banner-badge">Micro Habits</div>
+    </section>
+
+    <!-- Intuitive Habit Creator -->
+    <section class="quick-add-section" aria-label="Habit Creator">
+      <form id="quick-add-form" class="quick-add-form">
+        <input 
+          type="text" 
+          id="habit-input" 
+          class="habit-input" 
+          placeholder="Write a tiny habit (e.g., 'Read 1 page', 'Drink 1 glass of water', 'Open notebook')..." 
+          required 
+          autocomplete="off"
+          maxlength="60"
+        />
+
+        <div class="color-picker-wrapper" title="Choose Ink Color">
+          <button type="button" class="color-dot active" data-color="#2b5c8f" style="background-color: #2b5c8f;" title="Navy Ink" aria-label="Navy Ink"></button>
+          <button type="button" class="color-dot" data-color="#2d2a26" style="background-color: #2d2a26;" title="Charcoal Ink" aria-label="Charcoal Ink"></button>
+          <button type="button" class="color-dot" data-color="#3d6b4f" style="background-color: #3d6b4f;" title="Sage Ink" aria-label="Sage Ink"></button>
+          <button type="button" class="color-dot" data-color="#825a2c" style="background-color: #825a2c;" title="Warm Ochre Ink" aria-label="Warm Ochre Ink"></button>
+          <button type="button" class="color-dot" data-color="#7a3e65" style="background-color: #7a3e65;" title="Dusty Berry Ink" aria-label="Dusty Berry Ink"></button>
+        </div>
+
+        <button type="submit" class="add-habit-btn">+ Add to Journal</button>
+      </form>
+
+      <!-- 1-Click Procrastinator Micro-Habit Chips -->
+      <div class="micro-habit-chips">
+        <span style="font-size: 0.9rem; font-weight: 600;">✨ Gentle micro-presets:</span>
+        <button type="button" class="micro-chip" data-habit="Drink 1 glass of water" data-color="#2b5c8f">+ Drink water</button>
+        <button type="button" class="micro-chip" data-habit="Read 1 page of a book" data-color="#825a2c">+ Read 1 page</button>
+        <button type="button" class="micro-chip" data-habit="2-minute desk tidy" data-color="#7a3e65">+ 2m tidy</button>
+        <button type="button" class="micro-chip" data-habit="Step outside for 3 mins" data-color="#3d6b4f">+ Fresh air</button>
+        <button type="button" class="micro-chip" data-habit="60s deep belly breaths" data-color="#2d2a26">+ 60s breathing</button>
+      </div>
+    </section>
+
+    <!-- Core Habit Matrix Grid (1-31 Days) -->
+    <section aria-label="Habit Matrix">
+      <div id="matrix-container" class="matrix-wrapper">
+        <!-- Rendered dynamically by HabitMatrix -->
+      </div>
+    </section>
+
+    <!-- Supplementary Trackers: Sleep Tracker & Mood Tracker -->
+    <section class="supplementary-trackers" aria-label="Supplementary Trackers">
+      <!-- 31-Day Hand-Drawn Sleep Tracker -->
+      <div id="sleep-container" class="tracker-card">
+        <!-- Rendered dynamically by SleepTracker -->
+      </div>
+
+      <!-- 31-Day Minimalist Mood Bar Chart -->
+      <div id="mood-container" class="tracker-card">
+        <!-- Rendered dynamically by MoodTracker -->
+      </div>
+    </section>
+
+    <!-- Gentle Notebook Footer -->
+    <footer class="journal-footer">
+      <p>
+        <span>🌱 Rule #1 for procrastinators: Never miss twice. One missed day is just rest; showing up today restarts your momentum.</span>
+      </p>
+    </footer>
+  </main>
+
+  <!-- Interactive Floating Tooltip -->
+  <div id="chart-tooltip" class="chart-tooltip" role="tooltip" aria-hidden="true"></div>
+
+  <!-- Scripts -->
+  <script src="/js/audio.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/matrix.js"></script>
+  <script src="/js/sleep-chart.js"></script>
+  <script src="/js/mood-chart.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

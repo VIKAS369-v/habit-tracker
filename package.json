@@ -1,0 +1,20 @@
+{
+  "name": "bullet-journal-habit-tracker",
+  "version": "1.0.0",
+  "description": "Warm, minimalist bullet-journal habit tracker designed for chronic procrastinators",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test tests/api.test.js"
+  },
+  "keywords": [
+    "habit-tracker",
+    "bullet-journal",
+    "procrastination",
+    "sleep-tracker",
+    "mood-tracker"
+  ],
+  "author": "",
+  "license": "MIT"
+}
