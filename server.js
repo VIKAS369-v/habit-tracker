@@ -5,7 +5,7 @@ const url = require('node:url');
 const { HabitDatabase } = require('./db.js');
 
 const PORT = process.env.PORT || 3000;
-const PUBLIC_DIR = path.join(__dirname, 'public');
+const PUBLIC_DIR = __dirname;
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
